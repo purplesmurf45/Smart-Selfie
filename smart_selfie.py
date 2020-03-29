@@ -59,9 +59,6 @@ while(cam.isOpened()):
     #Loop over each face to draw a rectangle around it
     for i in range(len(rects)):
         (x, y, w , h) = rect_to_box(rects[i])
-        #cv.rectangle(image,(x, y), (x + w, y + h), (255, 0 , 0), 1)
-
-        #cv.putText(image,"Face #{}".format(i+1),(x-10,y-10), cv.FONT_HERSHEY_SIMPLEX,0.25,(255,0,0),1)
 
         #Determine the facial landmarks for each face detected
         shape = predictor(gray, rects[i])
@@ -70,8 +67,6 @@ while(cam.isOpened()):
 
         mouth = shape[mStart:]
 
-        #for (x,y) in mouth:
-            #cv.circle(image, (x,y),1,(255,255,255),-1)
         smile_param = smile(shape)
         cv.putText(image,"SP: {:.2f}".format(smile_param),(300,30),
                    cv.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0,255), 2)
