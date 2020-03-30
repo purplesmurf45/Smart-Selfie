@@ -89,9 +89,7 @@ while(cam.isOpened()):
     key = cv.waitKey(1)
     if key == 27:
         break
-        
             
-    
 cam.release()
 cv.destroyAllWindows()
 
